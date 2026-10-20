@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="estilos.css">
+
+  <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+</head>
+
+<body>
+
+  <div class="titulo ancho margen centrar"><h1 class="">Formulario - CONTACTANOS</h1></div>
+  
+  <div class="contenedor_formulario_datos ancho margen">
+    <div class="contenedor_datos">
+  
+      <p><span class="rojo">*</span> Nombre:</p> 
+      <p>Email:</p> 
+      <p>Telefono:</p> 
+      <p><span class="rojo">*</span> Fecha:</p> 
+      <p><span class="rojo">*</span> Comentarios:</p> 
+    </div>
+  
+    <div class="contenedor_formulario">
+      <form action="guardar.php" method="get" id="formulariocomentario"> 
+    
+        <input type="text" class="elemento" id="nombre">
+        <input type="email" class="elemento" id="mail">
+        <input type="tel" name="telefono" id="telefono" placeholder="Ejem: 9992684329" class="elemento">
+        <input type="date" class="elemento" id="fecha">
+        <textarea name="comentario" id="comentario" class="elemento"></textarea>
+        <button id="btn_validar" name="btn_validar" type="button" class="bton_enviar">Enviar Comentario</button>
+    
+      </form>
+    </div>
+  </div>
+
+<!-- Funcion para validar -->
+  <script>
+    $("#btn_validar").click(function(){
+      //Nombre validar
+      if ($("#nombre").val().trim() ==''){
+       alert("Escribe tu nombre");
+       $("#nombre").focus();
+      return 0;
+      }
+      //Validar fecha
+      if ($("#fecha").val().trim() == ''){
+        alert("Escoge una fecha");
+        $("#fecha").focus();
+        return 0;
+      }
+
+      if($("#comentario").val().trim() == ''){
+        alert("Escribe tu comentario");
+        $("#comentario").focus();
+        return 0;
+      }
+
+      $("#formulariocomentario").submit();
+
+    });
+
+
+
+  </script>
+</body>
+</html>
